@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    networks:
+      - app-network
+    ports:
+      - "7000:5000" # Changed port for backend
+
+  frontend:
+    build: ./frontend
+    networks:
+      - app-network
+    ports:
+      - "8084:80" # Changed port for frontend
+
+networks:
+  app-network:
+    driver: bridge
